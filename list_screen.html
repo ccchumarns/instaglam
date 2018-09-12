@@ -59,9 +59,9 @@
           navigator.geolocation.getCurrentPosition(
             // 取得成功した場合
             function(position) {
-                alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+                // alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
                 $.ajax({
-                        url: "/instaglam/api/get_image_db.php?user_post="+position.coords.latitude+ "%20"+position.coords.longitude,
+                        url: "/instaglam/api/get_image_db.php?user_post="+position.coords.longitude+"%20"+position.coords.latitude,
                         dataType: "json"
                     }).done(function(data) {
             			for (var i = 0, len = data.length; i< len; ++i){

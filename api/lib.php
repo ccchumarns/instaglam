@@ -46,6 +46,18 @@ class DB {
             throw new Exceptionp('Fails to execute select query');
         }
     }
+    
+    public function update($sql) {
+        if ($this->mysqli->query($sql)) {
+            return true;
+        } else {
+            throw new Exceptionp('Fails to execute select query');
+        }
+    }
+    
+    public function close() {
+        $this->mysqli->close();
+    }
 }
 
 class Response {

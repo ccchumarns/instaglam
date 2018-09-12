@@ -25,37 +25,7 @@
  </head>
  
 <body>
-    <ul class="photo-list">
-      <li>
-        <a href="" style="background-image:url('img/photo/1.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/2.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/3.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/4.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/5.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/6.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/7.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/8.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/9.jpg')"  class="photo-list-img" ></a>
-      </li>
-      <li>
-        <a href="" style="background-image:url('img/photo/10.jpg')"  class="photo-list-img" ></a>
-      </li>
+    <ul id="list" class="photo-list">
     </ul>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -119,6 +89,14 @@
         }).done(function(data) {
 			for (var i = 0, len = data.length; i< len; ++i){
             console.log(data[i]);}
+            
+            for(var i = 0, len = data.length; i< len; ++i) {
+              var article = "<li>\
+                             <a  href='/instaglam/detail_screen.html?post_id="+ data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
+                             </li>";
+                $("#list").append(article);
+            }
+
 			
         })
     </script>

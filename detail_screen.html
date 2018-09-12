@@ -65,6 +65,7 @@
             dataType: "json"
         }).done(function(data) {
             $("#user_name").text(data.user_name)
+            $("#category").text(data.category)
             $("#description").text(data.description)
             $("#discount").text(data.coupon_discount)
             $("#go_sum").text(data.go_sum)
@@ -77,7 +78,8 @@
             
             var log = data.longitude
             var lat = data.latitude
-            var url = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + log
+            var url_google = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + log
+            var url ="/instaglam/api/update_go_sum_db.php?post_id=" + post_id + "&url=" + encodeURIComponent(url_google) 
             $("#route").attr("href", url)
         })
         

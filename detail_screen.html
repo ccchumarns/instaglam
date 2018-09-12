@@ -55,7 +55,7 @@
         </div>
     </div>
     
-    <div align="center"><a input type="button" href="#" class="square_btn" onClick="window.open('https://www.google.com/maps/dir/?api=1&destination=34.666361,133.918583')">ここに行く！</a></div>
+    <div align="center"><a id="route" input type="button" href="#" class="square_btn" onClick>ここに行く！</a></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
     
@@ -66,71 +66,22 @@
             dataType: "json"
         }).done(function(data) {
             $("#user_name").text(data.user_name)
-        })
-        
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#description").text(data.description)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#discount").text(data.coupon_discount)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#go_sum").text(data.go_sum)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#price").text(data.price)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#place").text(data.address)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#title").text(data.title)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#longitude").text(data.longitude)
-        })
-        
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
             $("#latitude").text(data.latitude)
+            $("#img_path").attr("src", data.img_url)
+            
+            var log = data.longitude
+            var lat = data.latitude
+            var url = "window.open('https://www.google.com/maps/dir/?api=1&destination=" + log + "," + lat + "')"
+            $("#route").attr("onClick", url)
         })
         
-        $.ajax({
-            url: "/instaglam/json_sample/document.json",
-            dataType: "json"
-        }).done(function(data) {
-            $("#img_path").attr("src", data.img_url)
-        })
     </script>
 </body>
 </html>

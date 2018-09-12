@@ -1,0 +1,27 @@
+[{
+    "post_id": "1",
+    "category": "\u30d5\u30fc\u30c9",
+    "title": "\u5bcc\u58eb\u5c71\u306e\u30b5\u30a4\u30bc\u30ea\u30e4",
+    "user_name": "test",
+    "img_url": "\/instaglam\/img\/P027762313_480.jpg",
+    "description": "\u3055\u3059\u304c\u5bcc\u58eb\u5c71\u3060\u306a\u3041",
+    "coupon_discount": "100%OFF!!",
+    "address": "Japan",
+    "go_sum": "0",
+    "price": "100000",
+    "latitude": "35.360556",
+    "longitude": "138.727778"
+}, {
+    "post_id": "2",
+    "category": "\u30ec\u30b8\u30e3\u30fc",
+    "title": "test",
+    "user_name": "test",
+    "img_url": "\/instaglam\/img\/P027762313_480.jpg",
+    "description": "test",
+    "coupon_discount": "100%OFF!!",
+    "address": "Japan",
+    "go_sum": "5",
+    "price": "10",
+    "latitude": "10.01",
+    "longitude": "20.9"
+}]

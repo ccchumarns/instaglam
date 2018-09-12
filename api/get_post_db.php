@@ -4,7 +4,7 @@
 include_once('common.php');
 $db = new DB();
 
-$id = 1;
+$id = $_GET['post_id'];
 
 $sql = 'SELECT post.post_id, user.name, post.title, post.img_url, post.price, 
 coupon.discount, category.category_name, post.description, post.latitude, 

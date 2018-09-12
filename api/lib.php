@@ -34,7 +34,7 @@ class DB {
             // 結果セットを閉じる
             $result->close();
         } else {
-            throw new Exception('Fails to execute select query : ' . $sql);
+            throw new Exception('Fails to execute select query');
         }
         return $ret;
     }
@@ -43,7 +43,7 @@ class DB {
         if ($this->mysqli->query($sql)) {
             return true;
         } else {
-            throw new Exceptionp('Fails to execute select query : ' . $sql);
+            throw new Exceptionp('Fails to execute select query');
         }
     }
 }

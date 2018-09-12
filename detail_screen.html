@@ -62,7 +62,7 @@
     
     <script>
         $.ajax({
-            url: "/instaglam/json_sample/document.json",
+            url: "/instaglam/api/get_post_db.php?post_id=1",
             dataType: "json"
         }).done(function(data) {
             $("#user_name").text(data.user_name)

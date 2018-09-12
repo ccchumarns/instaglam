@@ -74,26 +74,13 @@
         var post_id = $.urlParam('post_id');
         
         $.ajax({
-            url: "/instaglam/api/get_post_db.php?post_id=" + post_id,
+            url: "/instaglam/json_sample/list.json",
             dataType: "json"
         }).done(function(data) {
-            $("#user_name").text(data.user_name)
-            $("#description").text(data.description)
-            $("#discount").text(data.coupon_discount)
-            $("#go_sum").text(data.go_sum)
-            $("#price").text(data.price)
-            $("#place").text(data.address)
-            $("#title").text(data.title)
-            $("#longitude").text(data.longitude)
-            $("#latitude").text(data.latitude)
-            $("#img_path").attr("src", data.img_url)
-            
-            var log = data.longitude
-            var lat = data.latitude
-            var url = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + log
-            $("#route").attr("href", url)
+			for (var i = 0, len = data.length; i< len; ++i){
+            console.log(data[i]);}
+			
         })
-        
     </script>
 </body>
 </html>

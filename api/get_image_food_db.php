@@ -6,6 +6,7 @@ $db = new DB();
 
 $user_post = $_GET['user_post'];
 
+// category_id = 1 (フード)で絞り込み
 $sql = 'SELECT post.post_id, post.img_url, post.price, coupon.coupon_id, 
 coupon.coupon_id, category.category_id, post.go_sum, 
 GLength(GeomFromText(CONCAT("LineString('.$user_post.', " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) AS distance 
@@ -13,6 +14,7 @@ FROM post
 JOIN user ON post.user_id = user.user_id 
 JOIN category ON post.category_id = category.category_id 
 JOIN coupon ON post.coupon_id = coupon.coupon_id 
+WHERE post.category_id = 1 
 ORDER BY distance';
 $dataset = $db->select($sql);
 $db_len = count($dataset);

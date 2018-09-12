@@ -45,6 +45,11 @@
         </div>
         <div class="item2">
             <h3>場所：<span id="place"></h3>
+            
+            <!--緯度経度追加ー表示テスト-->
+            <h3>緯度：<span id="latitude"></h3>
+            <h3>軽度：<span id="longitude"></h3>
+            
             <h3>イッタ：<span id="go_sum"></h3>
             <h3>目安の金額：<span id="price">円</h3>
         </div>
@@ -52,8 +57,80 @@
     
     <div align="center"><a href="#" class="square_btn">ここに行く！</a></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    
+    
     <script>
-    // この中に JavaScript のプログラムを書く
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#user_name").text(data.user_name)
+        })
+        
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#description").text(data.description)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#discount").text(data.coupon_discount)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#go_sum").text(data.go_sum)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#price").text(data.price)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#place").text(data.address)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#title").text(data.title)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#longitude").text(data.longitude)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#latitude").text(data.latitude)
+        })
+        
+        $.ajax({
+            url: "/instaglam/json_sample/document.json",
+            dataType: "json"
+        }).done(function(data) {
+            $("#img_path").attr("src", data.img_url)
+        })
     </script>
 </body>
 </html>

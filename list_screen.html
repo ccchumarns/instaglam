@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <!-- スマホで見やすくする設定 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="list_stylesheet.css">
+    
+    <!-- ブラウザのタブに表示されるタイトル -->
+    <title>みんなの投稿</title>
+    <ul class="mypage-post-tab">
+      <li class="js-mypage-tab">
+        <img src="img/icon/login.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab">
+        <img src="img/icon/go_sum.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab-me">
+        <img src="img/icon/dis.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab-stock">
+        <img src="img/icon/tab.png" class="mypage-tab-img">
+      </li>
+    </ul>
+ </head>
+ 
+<body>
+    <ul class="photo-list">
+      <li>
+        <a href="" style="background-image:url('img/photo/1.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/2.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/3.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/4.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/5.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/6.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/7.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/8.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/9.jpg')"  class="photo-list-img" ></a>
+      </li>
+      <li>
+        <a href="" style="background-image:url('img/photo/10.jpg')"  class="photo-list-img" ></a>
+      </li>
+    </ul>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    
+    
+    <script>
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return decodeURI(results[1]) || 0;
+            }
+        }
+        var post_id = $.urlParam('post_id');
+        
+    // 　　現在地取得
+             // Geolocation APIに対応している
+        if (navigator.geolocation) {
+          alert("この端末では位置情報が取得できます");
+        // Geolocation APIに対応していない
+        } else {
+          alert("この端末では位置情報が取得できません");
+        }
+        
+            // 現在地取得処理
+        function getPosition() {
+          // 現在地を取得
+          navigator.geolocation.getCurrentPosition(
+            // 取得成功した場合
+            function(position) {
+                alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+            },
+            // 取得失敗した場合
+            function(error) {
+              switch(error.code) {
+                case 1: //PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+                case 2: //POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+                case 3: //TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+                default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+              }
+            }
+          );
+        }
+        
+        getPosition();
+        
+        $.ajax({
+            url: "/instaglam/json_sample/list.json",
+            dataType: "json"
+        }).done(function(data) {
+			for (var i = 0, len = data.length; i< len; ++i){
+            console.log(data[i]);}
+			
+        })
+    </script>
+</body>
+</html>

@@ -2,39 +2,20 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <!-- スマホで見やすくする設定 -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="list_stylesheet.css">
-    
-    <!-- ブラウザのタブに表示されるタイトル -->
     <title>みんなの投稿</title>
-    
-    </head>
+</head>
 
- 
 <body>
     
  <header>
     <ul id="login_logout" class="mypage-post-tab">
-      <!--<li class="js-mypage-tab">-->
-      <!--  <img src="img/icon/login.png" class="mypage-tab-img">-->
-      <!--</li>-->
-      <!--<li class="js-mypage-tab">-->
-      <!--  <img src="img/icon/go_sum.png" class="mypage-tab-img">-->
-      <!--</li>-->
-      <!--<li class="js-mypage-tab-me">-->
-      <!--  <img src="img/icon/dis.png" class="mypage-tab-img">-->
-      <!--</li>-->
-      <!--<li class="js-mypage-tab-stock" >-->
-      <!--  <img src="img/icon/tab.png" class="mypage-tab-img">-->
-      <!--</li>-->
       <li id="menu" class="js-mypage-tab-me">
 		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></a></div>
 		<ul id="cad">
 		</ul>
-		
-	
-	</li>
+	  </li>
     </ul>
  </header>
  
@@ -43,14 +24,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     
-    
-    
     <script>
-    
-   
-   
-    
-    
         $.urlParam = function(name) {
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
             if (results == null) {
@@ -95,7 +69,7 @@
                              </li>";
                         $("#login_logout").append(login);
         
-    };
+        };
        
 
         $.ajax({
@@ -127,6 +101,6 @@
                 })
                 
      
-            </script>
+    </script>
 </body>
 </html>

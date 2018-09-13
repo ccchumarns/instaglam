@@ -1,0 +1,84 @@
+/* 共通のCSS */
+* {
+  box-sizing: border-box;
+}
+
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,
+form, input, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Lato, 'Hiragino Kaku Gothic Pro', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  background-color:#f7f3e9;
+}
+
+img {
+  width: 100%;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%; /*追加*/
+  padding-top: 60px;
+}
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%); /*調整*/
+}
+
+
+
+/*ヘッターのcss*/
+.mypage-post-tab {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color:#f7f3e9;
+  
+}
+.mypage-post-tab li {
+    padding: 15px;
+    cursor: pointer;
+    list-style: none;
+}
+.mypage-tab-img {
+      width: 24px;
+      height: 21px;
+}
+
+/*bodyのcss*/
+.photo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 160px;
+}
+.photo-list li {
+    flex-basis: 33.3%;
+    list-style: none;
+}
+.photo-list-img {
+    display: inline-block;
+    width: 100%;
+    /*border: 1px solid #fff;*/
+    background-size:cover;
+    height: 200px;
+}
+

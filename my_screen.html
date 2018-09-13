@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <!-- スマホで見やすくする設定 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="my_stylesheet.css">
+    
+    <!-- ブラウザのタブに表示されるタイトル -->
+    <title>mypage</title>
+    
+    <button type="button" onclick="history.back()"><h3>戻る</h3></button>
+    <ul class="mypage-post-tab">
+      <li class="js-mypage-tab">
+        <img src="img/icon/login.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab">
+        <img src="img/icon/go_sum.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab-me">
+        <img src="img/icon/dis.png" class="mypage-tab-img">
+      </li>
+      <li class="js-mypage-tab-stock">
+        <img src="img/icon/tab.png" class="mypage-tab-img">
+      </li>
+    </ul>
+</head>
+
+<body>
+    <div class="box" align="center">
+        <img src= 'img/photo/1.jpg' class="image" />
+    </div>
+    <h2><div align="center">username :<span id="user_name"></div></h2>
+    
+    <ul id="list" class="photo-list">
+    </ul>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script>
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return decodeURI(results[1]) || 0;
+            }
+        }
+        var post_id = $.urlParam('post_id');
+        $.ajax({
+            url: "/instaglam/api/get_image_db.php?user_post="+position.coords.longitude+"%20"+position.coords.latitude,
+            dataType: "json"
+            }).done(function(data) {
+    			for (var i = 0, len = data.length; i< len; ++i){
+                console.log(data[i]);}
+                
+                for(var i = 0, len = data.length; i< len; ++i) {
+                  var article = "<li>\
+                                 <a  href='/instaglam/detail_screen.html?post_id="+ data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
+                                 </li>";
+                    $("#list").append(article);
+                }
+        })
+        $.ajax({
+            url: "/instaglam/api/get_post_db.php?post_id=" + post_id,
+            dataType: "json"
+        }).done(function(data) {
+            $("#user_name").text(data.user_name)
+            $("#category").text(data.category)
+            $("#description").text(data.description)
+            $("#discount").text(data.coupon_discount)
+            $("#go_sum").text(data.go_sum)
+            $("#price").text(data.price)
+            $("#place").text(data.address)
+            $("#title").text(data.title)
+            $("#longitude").text(data.longitude)
+            $("#latitude").text(data.latitude)
+            $("#img_path").attr("src", data.img_url)
+            
+            var log = data.longitude
+            var lat = data.latitude
+            var url_google = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + log
+            var url ="/instaglam/api/update_go_sum_db.php?post_id=" + post_id + "&url=" + encodeURIComponent(url_google) 
+            $("#route").attr("href", url)
+        })
+        
+    </script>
+</body>
+</html>

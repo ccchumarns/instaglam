@@ -16,18 +16,18 @@
     
  <header>
     <ul id="login_logout" class="mypage-post-tab">
-      <li class="js-mypage-tab">
-        <img src="img/icon/login.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab">
-        <img src="img/icon/go_sum.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab-me">
-        <img src="img/icon/dis.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab-stock" >
-        <img src="img/icon/tab.png" class="mypage-tab-img">
-      </li>
+      <!--<li class="js-mypage-tab">-->
+      <!--  <img src="img/icon/login.png" class="mypage-tab-img">-->
+      <!--</li>-->
+      <!--<li class="js-mypage-tab">-->
+      <!--  <img src="img/icon/go_sum.png" class="mypage-tab-img">-->
+      <!--</li>-->
+      <!--<li class="js-mypage-tab-me">-->
+      <!--  <img src="img/icon/dis.png" class="mypage-tab-img">-->
+      <!--</li>-->
+      <!--<li class="js-mypage-tab-stock" >-->
+      <!--  <img src="img/icon/tab.png" class="mypage-tab-img">-->
+      <!--</li>-->
       <li id="menu" class="js-mypage-tab-me">
 		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></a></div>
 		<ul id="cad">
@@ -64,10 +64,15 @@
 
         var category_id = $.urlParam('category_id');
 
+        // var list = "<li>\
+        //                  <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/aim.png' class='mypage-tab-img'></a>\
+        //                  </li>";
+        // $("list").append(list);
+        
          if (document.cookie.match(/user_id=/)){
             // console.log("logout")
             var post = "<li>\
-                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'>POST</a>\
+                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/camera.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(post);
             
@@ -75,6 +80,14 @@
                          <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>MY PAGE</a>\
                          </li>";
                     $("#login_logout").append(my);
+                    
+                    
+                    
+            // 実装できたらログアウトもやる
+            // var logout = "<li>\
+            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGOUT</a>\
+            //              </li>";
+            //         $("#login_logout").append(logout);
         }else{
                 // console.log("login")
             var login = "<li>\

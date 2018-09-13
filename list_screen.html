@@ -9,9 +9,9 @@
     <!-- ブラウザのタブに表示されるタイトル -->
     <title>みんなの投稿</title>
     <ul class="mypage-post-tab">
-      <li class="js-mypage-tab">
-        <img src="img/icon/login.png" class="mypage-tab-img">
-      </li>
+      <!--<li class="js-mypage-tab">-->
+      <!--  <img src="img/icon/login.png" class="mypage-tab-img">-->
+      <!--</li>-->
       <li class="js-mypage-tab">
         <img src="img/icon/go_sum.png" class="mypage-tab-img">
       </li>
@@ -21,6 +21,15 @@
       <li class="js-mypage-tab-stock">
         <img src="img/icon/tab.png" class="mypage-tab-img">
       </li>
+      <li id="menu" class="js-mypage-tab-me">
+		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></div>
+		<ul>
+			<li><a>all</a></li>
+			<li><a>店舗</a></li>
+			<li><a>レジャー</a></li>
+			<li><a>0円</a></li>
+		</ul>
+	</li>
     </ul>
  </head>
  
@@ -33,34 +42,32 @@
     
     
     <script>
-    
-    $.urlParam = function(name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results == null) {
-        return "";
-    } else {
-        return decodeURI(results[1]) || "";
-    }
-}
-var lat = $.urlParam('lat');
-var lon = $.urlParam('lon');
+        $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results == null) {
+                return "";
+            } else {
+                return decodeURI(results[1]) || "";
+            }
+        }
+        var lat = $.urlParam('lat');
+        var lon = $.urlParam('lon');
 
+        var category_id = $.urlParam('category_id');
+        console.log(category_id);
 
-var category_id = $.urlParam('category_id');
-console.log(category_id);
-
-$.ajax({
-    url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id="+category_id,
-    dataType: "json"
-    }).done(function(data) {
-    
-    for (var i = 0, len = data.length; i < len; ++i) {
-        var article = "<li>\
-             <a  href='/instaglam/detail_screen.html?post_id=" + data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
-             </li>";
-        $("#list").append(article);
-    }
-})
+        $.ajax({
+            url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id="+category_id,
+            dataType: "json"
+            }).done(function(data) {
+            
+            for (var i = 0, len = data.length; i < len; ++i) {
+                var article = "<li>\
+                     <a  href='/instaglam/detail_screen.html?post_id=" + data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
+                     </li>";
+                $("#list").append(article);
+            }
+        })
     </script>
 </body>
 </html>

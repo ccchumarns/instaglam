@@ -16,16 +16,37 @@
     
     <br/><br/><br/>
     
+    <ui id="error"></ui>
+    
     <center>
       
       <form action="/instaglam/api/upload_post_db.php" method="post" enctype="multipart/form-data">
+        
+        <span id="preview_area">
+          <img id='preview' width= auto height="220" src="img/icon/JPG.png" >
+          </div>
+        </span> 
+        
+        <br /><br />
+        
+        <input type="file" name="upload_file" id="upload_file" class="data file" />
+        
+        <br /><br />
+        
         <div>
-          <input type="title" id="title" name="title" placeholder="なんて場所？" style="width:50%;">
+          <input type="title" id="title" name="title" placeholder="なんて場所？">
         </div>
         
         <br />
         
         <div>
+          <textarea id="description" name="description" placeholder="どんな場所だった？"></textarea>
+        </div>
+        
+        <br />
+        
+        <div>
+          <p>Price:</p>
           <label>
           <select name="price">
             <option value="0">0¥</option>
@@ -42,9 +63,6 @@
         
         <br />
         <ui id="cad">
-          <!--<input type="radio" name="category_id" value="2">遊ぶ-->
-          <!--<input type="radio" name="category_id" value="1">食べる-->
-          <!--<input type="radio" name="category_id" value="3">0円-->
         </ui>
         <input type="hidden" id="lat" name="lat">
         <input type="hidden" id="lon" name="lon">
@@ -62,17 +80,9 @@
         
         <br /><br />
         
-        <div>
-          <textarea id="description" name="description" placeholder="どんな場所だった？"></textarea>
-        </div>
-        
-        <br />
-        
         <input type="submit" value="送信" />
         
         <br />
-        
-        <ui id="error"></ui>
         
       </form>
     </center>

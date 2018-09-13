@@ -145,7 +145,7 @@ label {
   text-align: right;
 }
 
-input[type="user_name"],input[type="passward"], textarea {
+input[type="user_name"],input[type="password"], textarea {
   font: 1em sans-serif;
   width: 150px;
   box-sizing: border-box;

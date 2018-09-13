@@ -32,31 +32,32 @@
     
     
     
-    <script>$.urlParam = function(name) {
+    <script>
+    
+    $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results == null) {
-        return null;
+        return "";
     } else {
-        return decodeURI(results[1]) || 0;
+        return decodeURI(results[1]) || "";
     }
 }
 var lat = $.urlParam('lat');
 var lon = $.urlParam('lon');
 
 
+var category_id = $.urlParam('category_id');
+console.log(category_id);
 
 $.ajax({
-    url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat,
+    url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id="+category_id,
     dataType: "json"
-}).done(function(data) {
-    for (var i = 0, len = data.length; i < len; ++i) {
-        console.log(data[i]);
-    }
-
+    }).done(function(data) {
+    
     for (var i = 0, len = data.length; i < len; ++i) {
         var article = "<li>\
-                                         <a  href='/instaglam/detail_screen.html?post_id=" + data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
-                                         </li>";
+             <a  href='/instaglam/detail_screen.html?post_id=" + data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
+             </li>";
         $("#list").append(article);
     }
 })

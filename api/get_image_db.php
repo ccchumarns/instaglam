@@ -15,8 +15,8 @@ if(isset($category_id) && is_numeric($category_id)){
     JOIN user ON post.user_id = user.user_id 
     JOIN category ON post.category_id = category.category_id 
     JOIN coupon ON post.coupon_id = coupon.coupon_id 
-    WHERE post.category_id = '.$category_id.'  
-    ORDER BY distance';
+    WHERE post.category_id = '.$category_id.' AND GLength(GeomFromText(CONCAT("LineString(139.73876 35.628471, " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.04
+    ORDER BY post.go_sum';
     $dataset = $db->select($sql);
     $db_len = count($dataset);
     
@@ -37,8 +37,9 @@ if(isset($category_id) && is_numeric($category_id)){
     FROM post 
     JOIN user ON post.user_id = user.user_id 
     JOIN category ON post.category_id = category.category_id 
-    JOIN coupon ON post.coupon_id = coupon.coupon_id   
-    ORDER BY distance';
+    JOIN coupon ON post.coupon_id = coupon.coupon_id 
+    WHERE GLength(GeomFromText(CONCAT("LineString(139.73876 35.628471, " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.04
+    ORDER BY post.go_sum';
     $dataset = $db->select($sql);
     $db_len = count($dataset);
     

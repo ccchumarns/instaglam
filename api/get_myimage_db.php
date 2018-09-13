@@ -4,10 +4,10 @@
 include_once('common.php');
 $db = new DB();
 
-$user_id = $_GET['user_id'];
+$user_id = $_COOKIE['user_id'];
 
 // user_idが同じ投稿を日付でソートして取得
-$sql = 'SELECT post.post_id, post.img_url, post.price, coupon.coupon_id, 
+$sql = 'SELECT post.user_id, post.post_id, post.img_url, post.price, coupon.coupon_id, 
 coupon.coupon_id, category.category_id, post.go_sum, post.time 
 FROM post 
 JOIN user ON post.user_id = user.user_id 
@@ -19,6 +19,7 @@ $db_len = count($dataset);
 
 foreach ($dataset as $key => $value){
     $data[] = array('post_id' => $value['post_id'],
+    'user_id' => $value['user_id'],
     'category_id' => $value['category_id'],
     'img_url' => $value['img_url'],
     'coupon_id' => $value['coupon_id'],

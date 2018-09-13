@@ -134,6 +134,7 @@ img {
 	border-bottom: 1px rgba(232,226,215,1) solid;
 	border-left: 1px rgba(232,226,215,1) solid;
 	border-right: 1px rgba(232,226,215,1) solid;
+	background-color:rgba(247,243,233,0.75);
 	height: 50px;
 	/*配置*/
 	pointer-events: auto;

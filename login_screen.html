@@ -24,6 +24,8 @@
         <div>
           <label for="passwaord">passward:</label><br>
           <input type="passward" id="passward" name="passward">
+          <input type="hidden" id="lat" name="lat">
+          <input type="hidden" id="lon" name="lon">
         </div>
         <br />
         <input type="submit" value="login" />
@@ -47,9 +49,9 @@
         var error = $.urlParam('error'); 
         
         if(error==1){
-          var error_message = "<h2><font color='#FF0000'>\
-                             usernameかpassawardが間違っています!\
-                             </h2>";
+          var error_message = "<center><h2><font color='#FF0000'>\
+                             usernameかpassawardが間違っています\
+                             </h2></center>";
           $("#error").append(error_message);  
         }
         

@@ -13,13 +13,13 @@
       <!--  <img src="img/icon/login.png" class="mypage-tab-img">-->
       <!--</li>-->
       <li class="js-mypage-tab">
-        <img src="img/icon/go_sum.png" class="mypage-tab-img">
+        <!--<img src="img/icon/go_sum.png" class="mypage-tab-img">-->
       </li>
       <li class="js-mypage-tab-me">
-        <img src="img/icon/dis.png" class="mypage-tab-img">
+        <!--<img src="img/icon/dis.png" class="mypage-tab-img">-->
       </li>
       <li class="js-mypage-tab-stock">
-        <img src="img/icon/tab.png" class="mypage-tab-img">
+        <!--<img src="img/icon/tab.png" class="mypage-tab-img">-->
       </li>
       <li id="menu" class="js-mypage-tab-me">
 		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></div>
@@ -56,11 +56,13 @@
         var category_id = $.urlParam('category_id');
         console.log(category_id);
 
+        // var url = "/instaglam/list_screen.html?lon=" + lon + "&lat=" lat + "&category_id=" + 
+
         $.ajax({
-            url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id="+category_id,
+            url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id=" + category_id,
             dataType: "json"
             }).done(function(data) {
-            
+
             for (var i = 0, len = data.length; i < len; ++i) {
                 var article = "<li>\
                      <a  href='/instaglam/detail_screen.html?post_id=" + data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
@@ -68,6 +70,14 @@
                 $("#list").append(article);
             }
         })
-    </script>
+      
+        $.ajax({
+                    url: "/instaglam/api/get_category.php",
+                    dataType: "json"
+                    }).done(function(data) {
+                    // $("#user_name").text(data.user_name)
+                    console.log(data);
+                })
+            </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ $sDomain =         '';
 // Initialize
 include_once('common.php');
 $db = new DB();
-$sql = 'SELECT user_id, COUNT(*) FROM user WHERE name = "'.$user_name.'" AND password = "'.$password.'"';
+$sql = 'SELECT user_id, COUNT(*) FROM user WHERE name = "'.$user_name.'" AND password = "'.$password.'" group by user_id';
 $userSet = $db->select($sql);
 $user = $userSet[0];
 $num = $user['COUNT(*)'];
@@ -31,8 +31,11 @@ if($num == 0){
     if(!isset($_COOKIE['user_id'])){
         //クッキーの値
         $sCkeValue     =   $user['user_id'];
+        echo $sCkeValue;
+        echo $sPath;
+        echo $sDomain;
         //有効期限は7日間
-        $iCkeTimeOut  =    0;
+        $iCkeTimeOut  =  time()+3600;
         //クッキーセット
         setcookie($iCkeName, $sCkeValue, $iCkeTimeOut, $sPath, $sDomain);
     }

@@ -24,15 +24,17 @@
         </span> 
         <br /><br />
         <div>
-          <label for="desc">Description:</label>
-          <textarea id="desc" name="user_message"></textarea>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
         </div>
         <div>
           <label for="price">Price:</label>
           <input type="price" id="price" name="price">
         </div>
-        <input type="radio" name="categoly" value="leisure">レジャー
-        <input type="radio" name="categoly" value="shop">店舗
+        <input type="radio" name="categoly_id" value="2">レジャー
+        <input type="radio" name="categoly_id" value="1">店舗
+        <input type="hidden" id="lat" name="lat">
+        <input type="hidden" id="lon" name="lon">
         <br /><br />
         <input type="submit" value="送信" />
         <br /><br />
@@ -41,6 +43,20 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       
       <script>
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return decodeURI(results[1]) || 0;
+            }
+        }
+        var lat = $.urlParam('lat');
+        var lon = $.urlParam('lon');
+        $('#lat').val(lat);
+        $('#lon').val(lon);
+        
         $('#upload_file').on('change', function(){
           var strFileInfo = $('#upload_file')[0].files[0];
           if(strFileInfo && strFileInfo.type.match('image.*')){ 

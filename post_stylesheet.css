@@ -147,7 +147,7 @@ label {
 
 input[type="description"],input[type="file"], textarea {
   font: 1em sans-serif;
-  width: 280px;
+  width: 350px;
   box-sizing: border-box;
   border: 1px solid #999;
   border-radius: 5px;

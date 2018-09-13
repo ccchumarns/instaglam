@@ -23,7 +23,7 @@
       </li>
       <li id="menu" class="js-mypage-tab-me">
 		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></div>
-		<ul id = "cad">
+		<ul id="cad">
 		</ul>
 	</li>
     </ul>
@@ -52,7 +52,7 @@
         var category_id = $.urlParam('category_id');
         console.log(category_id);
 
-        // var url = "/instaglam/list_screen.html?lon=" + lon + "&lat=" lat + "&category_id=" + 
+        // var url = "/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "&category_id=" + 
 
         $.ajax({
             url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id=" + category_id,
@@ -70,10 +70,13 @@
                     url: "/instaglam/api/get_category.php",
                     dataType: "json"
                     }).done(function(data) {
+                    var category_all = "<li>\
+                             <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'>all</a>\
+                             </li>";
+                    $("#cad").append(category_all);         
                     for (var i = 0, len = data.length; i < len; ++i) {
-                        <li><a>店舗</a></li>
                         var category_link = "<li>\
-                             <a  href='/instaglam/list_screen.html?lon=" + lon + "%20" + lat + "&category_id=" + data[i].category_id + "'>" + data[i].category_name + "</a>\
+                             <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "&category_id=" + data[i].category_id + "'>" + data[i].category_name + "</a>\
                              </li>";
                         $("#cad").append(category_link);
                     }

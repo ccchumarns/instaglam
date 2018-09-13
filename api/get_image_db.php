@@ -7,7 +7,7 @@ $db = new DB();
 $user_post = $_GET['user_post'];
 $category_id = $_GET['category_id'];
 
-if(isset($category_id)){
+if(isset($category_id) && is_numeric($category_id)){
     $sql = 'SELECT post.post_id, post.img_url, post.price, coupon.coupon_id, 
     coupon.coupon_id, category.category_id, post.go_sum, 
     GLength(GeomFromText(CONCAT("LineString('.$user_post.', " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) AS distance 

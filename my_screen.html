@@ -10,7 +10,7 @@
     <title>みんなの投稿</title>
 </head>
 <header>
-    <ul class="mypage-post-tab">
+    <ul id="login_logout" class="mypage-post-tab">
       <li class="js-mypage-tab">
         <img src="img/icon/login.png" class="mypage-tab-img">
       </li>
@@ -45,8 +45,26 @@
         var category_id = $.urlParam('category_id');
         console.log(category_id);
 
-        // var url = "/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "&category_id=" + 
-
+        if (document.cookie.match(/user_id=/)){
+            // console.log("logout")
+            var post = "<li>\
+                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'>POST</a>\
+                         </li>";
+                    $("#login_logout").append(post);
+            
+            var my = "<li>\
+                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>MY PAGE</a>\
+                         </li>";
+                    $("#login_logout").append(my);
+        }else{
+                // console.log("login")
+            var login = "<li>\
+                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGIN</a>\
+                             </li>";
+                        $("#login_logout").append(login);
+        
+    };
+        
         $.ajax({
             url: "/instaglam/api/get_myimage_db.php",
             dataType: "json"

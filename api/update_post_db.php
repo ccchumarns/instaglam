@@ -6,7 +6,7 @@ $db = new DB();
 
 // $post = Param::get('post');
 $post = ['2', 
-    'イオンシネマ 福島', 
+    'やっほー', 
     'https://c-sf.smule.com/sf/s78/arr/97/26/665e9169-decd-4589-b62c-91965c1da3c9.jpg', 
     '1400', 
     '2', 

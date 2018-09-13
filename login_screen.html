@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="utf-8">
+      <!-- スマホで見やすくする設定 -->
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="login_stylesheet.css">
+      
+      <!-- ブラウザのタブに表示されるタイトル -->
+      <title>ログイン画面</title>
+      <!--<button type="button" onclick="history.back()"><h3>戻る</h3></button>-->
+  </head>
+  <body>
+      <ui id="error"></ui>
+      <br/><br/>
+      <center><h2>instaglam</h2></center>
+      <br/>
+      <center><img src="img/icon/aim.png" ></center>
+      <center><form action="/instaglam/api/upload_post_db.php" method="post" enctype="multipart/form-data"　text-align="center";>
+        <div>
+          <label for="user_name">username:</label><br>
+          <input type="user_name" id="user_name" name="user_name">
+        </div>
+        <div>
+          <label for="passwaord">passward:</label><br>
+          <input type="passward" id="passward" name="passward">
+        </div>
+        <br />
+        <input type="submit" value="login" />
+        <br /><br />
+      </form></center>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      
+      <script>
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return decodeURI(results[1]) || 0;
+            }
+        }
+        var lat = $.urlParam('lat');
+        var lon = $.urlParam('lon');
+        var error = $.urlParam('error'); 
+        
+        if(error==1){
+          var error_message = "<h2><font color='#FF0000'>\
+                             usernameかpassawardが間違っています!\
+                             </h2>";
+          $("#error").append(error_message);  
+        }
+        
+        $('#lat').val(lat);
+        $('#lon').val(lon);
+        
+        $('#upload_file').on('change', function(){
+          var strFileInfo = $('#upload_file')[0].files[0];
+          if(strFileInfo && strFileInfo.type.match('image.*')){ 
+      
+            $('#preview').remove();
+            $('#preview_area').append('<img id="preview" width= auto height="220" />'); 
+      
+            fileReader = new FileReader(); 
+            fileReader.onload = function(event){
+              $('#preview').attr('src', event.target.result);
+            }
+      
+            fileReader.readAsDataURL(strFileInfo); 
+          }
+        });
+      </script>
+  </body>
+<html>

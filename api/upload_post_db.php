@@ -4,6 +4,7 @@ if(empty($_POST['title']) || empty($_FILES['upload_file']['size']) || empty($_PO
     $url = '/instaglam/post_screen.html';
     header('Location: '.$url.'?lat='.$_POST['lat'].'&lon='.$_POST['lon'].'&error=1');
 } else {
+    
     //HTMLから画像の受け取り
     $file = $_FILES['upload_file'];
     //一字ファイルができているか（アップロードされているか）チェック
@@ -63,6 +64,7 @@ if(empty($_POST['title']) || empty($_FILES['upload_file']['size']) || empty($_PO
             .$geometry.
             ')';
             
+    //echo $sql;
     $db->insert($sql);
     $db->close();
     

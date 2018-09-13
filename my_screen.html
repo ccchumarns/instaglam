@@ -5,17 +5,16 @@
     <!-- スマホで見やすくする設定 -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="list_stylesheet.css">
-    
-    <!-- ブラウザのタブに表示されるタイトル -->
     <title>みんなの投稿</title>
 </head>
+
 <header>
     <ul id="login_logout" class="mypage-post-tab">
     </ul>
  </header>
  
 <body>
-    <h1 id="name" style="padding-top:60px;"></h1>
+    <center><h1 id="name" style="padding-top:60px;"></h1></center>
     <ul id="list" class="photo-list">
     </ul>
     
@@ -37,8 +36,8 @@
         console.log(category_id);
         
         var list = "<li>\
-                          <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/home.png' class='mypage-tab-img'></a>\
-                          </li>";
+                      <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/home.png' class='mypage-tab-img'></a>\
+                    </li>";
         $("#login_logout").append(list);
         
         if (document.cookie.match(/user_id=/)){
@@ -53,13 +52,12 @@
             //              </li>";
             //         $("#login_logout").append(my);
         }else{
-                // console.log("login")
             var login = "<li>\
                              <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
         
-    };
+        };
         
         $.ajax({
             url: "/instaglam/api/get_myimage_db.php",

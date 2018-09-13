@@ -2,18 +2,16 @@
 <html lang="ja">
   <head>
       <meta charset="utf-8">
-      <!-- スマホで見やすくする設定 -->
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <link rel="stylesheet" type="text/css" href="post_stylesheet.css">
-      
-      <!-- ブラウザのタブに表示されるタイトル -->
       <title>投稿画面</title>
       <!--<button type="button" onclick="history.back()"><h3>戻る</h3></button>-->
   </head>
-<header>
-  <ul id="login_logout" class="mypage-post-tab">
-  </ul>
-</header>
+  
+  <header>
+    <ul id="login_logout" class="mypage-post-tab">
+    </ul>
+  </header>
   <body>
       <br/><br/><br/>
       <form action="/instaglam/api/upload_post_db.php" method="post" enctype="multipart/form-data">
@@ -80,13 +78,11 @@
                          </li>";
                     $("#login_logout").append(my);
         }else{
-                // console.log("login")
             var login = "<li>\
                              <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
-        
-    };
+        };
         
         $('#upload_file').on('change', function(){
           var strFileInfo = $('#upload_file')[0].files[0];
@@ -99,7 +95,6 @@
             fileReader.onload = function(event){
               $('#preview').attr('src', event.target.result);
             }
-      
             fileReader.readAsDataURL(strFileInfo); 
           }
         });

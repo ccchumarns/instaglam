@@ -41,10 +41,11 @@
         </div>
         
         <br />
-        
-        <input type="radio" name="category_id" value="2">遊ぶ
-        <input type="radio" name="category_id" value="1">食べる
-        <input type="radio" name="category_id" value="3">0円
+        <ui id="cad">
+          <!--<input type="radio" name="category_id" value="2">遊ぶ-->
+          <!--<input type="radio" name="category_id" value="1">食べる-->
+          <!--<input type="radio" name="category_id" value="3">0円-->
+        </ui>
         <input type="hidden" id="lat" name="lat">
         <input type="hidden" id="lon" name="lon">
         
@@ -137,8 +138,15 @@
         var error_message = "<center><h2><font color='#FF0000'>記入されていない項目があります</h2></center>";
         $("#error").append(error_message);  
       }
-      
-      
+      $.ajax({
+          url: "/instaglam/api/get_category.php",
+          dataType: "json"
+          }).done(function(data) {      
+          for (var i = 0, len = data.length; i < len; ++i) {
+              var category_link = "<input type='radio' name='category_id' value='"+data[i].category_id+"'>"+data[i].category_name
+              $("#cad").append(category_link);
+          }
+      })
       
       // 拡大縮小防止
      document.addEventListener('touchstart', event => {

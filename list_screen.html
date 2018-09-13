@@ -77,7 +77,7 @@
                     $("#login_logout").append(post);
             
             var my = "<li>\
-                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>MY PAGE</a>\
+                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(my);
                     
@@ -85,13 +85,13 @@
                     
             // 実装できたらログアウトもやる
             // var logout = "<li>\
-            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGOUT</a>\
+            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
             //              </li>";
             //         $("#login_logout").append(logout);
         }else{
                 // console.log("login")
             var login = "<li>\
-                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGIN</a>\
+                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
         

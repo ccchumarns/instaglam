@@ -4,11 +4,6 @@
         <title> </title>
     </head>
     <body>
-        <h1>list_screen にリダイレクトしたい</h1>
-        <h2 id="lad"></h2>
-        <h2 id="lon"></h2>
-    
-    
     </body>
 </html>
 
@@ -29,22 +24,8 @@
           navigator.geolocation.getCurrentPosition(
             // 取得成功した場合
             function(position) {
-                alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
-                $.ajax({
-                        url: "/instaglam/api/get_image_db.php?user_post="+position.coords.longitude+"%20"+position.coords.latitude,
-                        dataType: "json"
-                    }).done(function(data) {
-            			for (var i = 0, len = data.length; i< len; ++i){
-                        console.log(data[i]);}
-                        
-                        for(var i = 0, len = data.length; i< len; ++i) {
-                          var article = "<li>\
-                                         <a  href='/instaglam/detail_screen.html?post_id="+ data[i].post_id + "' style='background-image:url(" + data[i].img_url + ")'  class='photo-list-img' ></a>\
-                                         </li>";
-                            $("#list").append(article);
-                        }
-                })
                 
+                window.location.href='http://ec2-13-251-26-96.ap-southeast-1.compute.amazonaws.com:8080/instaglam/list_screen.html?lon=' + position.coords.longitude + '&lat=' + position.coords.latitude 
             },
             // 取得失敗した場合
             function(error) {

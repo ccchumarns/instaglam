@@ -22,5 +22,5 @@ if(isset($_COOKIE['user_id'])){
     header('Location: '.$url);
 } else {
     $url = '/instaglam/login_screen.html';
-    header('Location: '.$url.'?lat='.$lat.'&lon='.$lon);
+    header('Location: '.$url.'?lat='.$_GET['lat'].'&lon='.$_GET['lon']);
 }

@@ -10,16 +10,17 @@
     <title>みんなの投稿</title>
     <ul class="mypage-post-tab">
       <li class="js-mypage-tab">
-        <img src="img/icon/login.png" class="mypage-tab-img">
+        <a href="/in"></a>
+        <!--<img src="img/icon/login.png" class="mypage-tab-img" >-->
       </li>
       <li class="js-mypage-tab">
-        <img src="img/icon/go_sum.png" class="mypage-tab-img">
+        <!--<img src="img/icon/go_sum.png" class="mypage-tab-img">-->
       </li>
       <li class="js-mypage-tab-me">
-        <img src="img/icon/dis.png" class="mypage-tab-img">
+        <!--<img src="img/icon/dis.png" class="mypage-tab-img">-->
       </li>
       <li class="js-mypage-tab-stock">
-        <img src="img/icon/tab.png" class="mypage-tab-img">
+        <!--<img src="img/icon/tab.png" class="mypage-tab-img">-->
       </li>
     </ul>
  </head>
@@ -45,12 +46,13 @@
 var lat = $.urlParam('lat');
 var lon = $.urlParam('lon');
 
-
 var category_id = $.urlParam('category_id');
 console.log(category_id);
 
+// var url = "/instaglam/list_screen.html?lon=" + lon + "&lat=" lat + "&category_id=" + 
+
 $.ajax({
-    url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id="+category_id,
+    url: "/instaglam/api/get_image_db.php?user_post=" + lon + "%20" + lat + "&category_id=" + category_id,
     dataType: "json"
     }).done(function(data) {
     
@@ -61,6 +63,15 @@ $.ajax({
         $("#list").append(article);
     }
 })
+
+
+$.ajax({
+            url: "/instaglam/api/get_category.php",
+            dataType: "json"
+            }).done(function(data) {
+            // $("#user_name").text(data.user_name)
+            console.log(data);
+        })
     </script>
 </body>
 </html>

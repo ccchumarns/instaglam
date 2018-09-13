@@ -141,8 +141,42 @@ form div + div {
 }
 
 label {
-  display: inline-block;
-  text-align: right;
+	position: relative;		/* 選択ボックスの位置指定 */ 
+	display: block;			/* ブロックレベル要素化にする */ 
+	width: 150px;			/* ボックスの高さを指定する */
+	border: 2px; /* ボックスの境界線を実線で指定する */
+	border-radius: 5px;		/* ボックスに角丸を指定する */
+	background: #fff;		/* ボックスの背景色を指定する */
+}
+label:before {
+	position: absolute;	/* 矢印の位置を指定する */
+	content: "";		/* 矢印のコンテンツ */ 
+	top: 50%;			/* 下部から配置の基準位置を決める */ 
+	right: 10px;		/* 右側から配置の基準位置を決める */ 
+	width:0px;			/* ボックスの横幅をなしに指定する */
+ 	height:0px;			/* ボックスの高さをなしに指定する */
+	margin: -2px 0 0 0;	/* ボックス外側の余白を指定する */
+	border: 5px solid transparent;	/* 矢印の境界線を透過する */
+	border-top: 5px solid #326693;	/* 矢印ボックス上部の境界線を実線で指定する */
+	cursor: pointer;		/* マウスカーソルの形を指定する */
+	pointer-events: none;	/* マウスイベントを制御する */
+}
+
+select {
+	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+	appearance: none;		/* 標準のスタイルを無効にする */ 
+	display: block;			/* ブロックレベル要素化する */ 
+	width: 150px;			/* ボックスの高さを指定する */
+	padding: 10px 15px;		/* ボックス内側の余白を指定する */
+	color: #b20000;			/* フォントの色を指定 */
+	border: none;			/* 境界線をなしに指定する */
+	border-radius: 5px;		/* 角丸を指定する */
+	background: transparent;
+	font-size:14px;
+}
+::-ms-expand {		/* select要素のデザインを無効にする（IE用） */
+	display: none;
 }
 
 input[type="description"],input[type="file"], textarea {
@@ -151,14 +185,16 @@ input[type="description"],input[type="file"], textarea {
   box-sizing: border-box;
   border: 1px solid #999;
   border-radius: 5px;
+  background: #fff;
 }
 
-input[type="price"],input[type="title"]{
+input[type="title"]{
   font: 1em sans-serif;
   width: 150px;
   box-sizing: border-box;
   border: 1px solid #999;
   border-radius: 5px;
+  background: #fff;
 }
 
 input[type="submit"]{

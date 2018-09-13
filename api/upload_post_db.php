@@ -28,7 +28,7 @@ if(is_uploaded_file($_FILES['upload_file']['tmp_name'])){
 
 $geometry = 'GeomFromText(\'POINT('.$_POST['lon'].' '.$_POST['lat'].')\')';
 
-$coupon_id = rand ( 1 , 5 );
+$coupon_id = rand ( 1 , 6 );
 
 // Initialize
 include_once('common.php');

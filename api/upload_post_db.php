@@ -62,5 +62,5 @@ $sql = 'INSERT INTO `post`
 $db->insert($sql);
 $db->close();
 
-$url = '../list_screen.html';
+$url = 'https://ccchumarns.github.io/instaglam/';
 header('Location: '.$url);

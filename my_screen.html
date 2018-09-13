@@ -46,11 +46,10 @@
                          <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/camera.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(post);
-            
-            // var my = "<li>\
-            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
-            //              </li>";
-            //         $("#login_logout").append(my);
+            var logout = "<li>\
+                         <a  href='/instaglam/api/logout.php'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
+                         </li>";
+                    $("#login_logout").append(logout);
         }else{
             var login = "<li>\
                              <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\

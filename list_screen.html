@@ -54,18 +54,14 @@
                          <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(my);
-                    
-                    
-                    
-            // 実装できたらログアウトもやる
-            // var logout = "<li>\
-            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
-            //              </li>";
-            //         $("#login_logout").append(logout);
+            var logout = "<li>\
+                         <a  href='/instaglam/api/logout.php'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
+                         </li>";
+                    $("#login_logout").append(logout);
         }else{
                 // console.log("login")
             var login = "<li>\
-                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
+                             <a  href='/instaglam/api/logout.php?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
         

@@ -49,8 +49,9 @@
             </p>
           </p>
         </div>
-        <input type="radio" name="category_id" value="2">レジャー
-        <input type="radio" name="category_id" value="1">店舗
+        <input type="radio" name="category_id" value="2">遊ぶ
+        <input type="radio" name="category_id" value="1">食べる
+        <input type="radio" name="category_id" value="3">0円
         <input type="hidden" id="lat" name="lat">
         <input type="hidden" id="lon" name="lon">
         <br /><br />
@@ -84,16 +85,14 @@
         
         
         if (document.cookie.match(/user_id=/)){
-            // console.log("logout")
-            var post = "<li>\
-                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/camera.png' class='mypage-tab-img'></a>\
-                         </li>";
-                    $("#login_logout").append(post);
-            
             var my = "<li>\
                          <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(my);
+            var logout = "<li>\
+                         <a  href='/instaglam/api/logout.php'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
+                         </li>";
+                    $("#login_logout").append(logout);
         }else{
             var login = "<li>\
                              <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\

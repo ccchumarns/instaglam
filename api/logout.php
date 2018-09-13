@@ -1,14 +1,14 @@
 <?php
 
 //クッキーの名前
-$iCkeName     =    'userID';
+$iCkeName     =    'user_id';
 //クッキーが有効なサイト上のパス
 $sPath =           '/';
 //クッキーが有効なドメイン
 $sDomain =         '';
 
 //クッキーの削除
-if(isset($_COOKIE['userID'])){
+if(isset($_COOKIE['user_id'])){
     //クッキーの値 空に設定
     $sCkeValue = '';
     //有効期限は7日間
@@ -18,7 +18,9 @@ if(isset($_COOKIE['userID'])){
     //削除後このページにジャンプ クッキーが削除後の状態になる
     // header('Location: https://d59e4bb1248746c2bb74c27542e9b238.vfs.cloud9.ap-southeast-1.amazonaws.com/instaglam/list_screen.html');
     
-    echo 'ログアウトしました';
+    $url = 'https://ccchumarns.github.io/instaglam/';
+    header('Location: '.$url);
 } else {
-    echo 'ログインしていません';
+    $url = '/instaglam/login_screen.html';
+    header('Location: '.$url.'?lat='.$lat.'&lon='.$lon);
 }

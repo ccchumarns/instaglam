@@ -92,6 +92,14 @@
             fileReader.readAsDataURL(strFileInfo); 
           }
         });
+        
+        // 拡大縮小防止
+     document.addEventListener('touchstart', event => {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+         }
+        }, true);
+        
       </script>
   </body>
 <html>

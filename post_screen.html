@@ -14,6 +14,7 @@
   </header>
   <body>
       <br/><br/><br/>
+      <ui id="error"></ui>
       <form action="/instaglam/api/upload_post_db.php" method="post" enctype="multipart/form-data">
         <div>
           <label for="title">Title:</label>
@@ -71,6 +72,8 @@
         }
         var lat = $.urlParam('lat');
         var lon = $.urlParam('lon');
+        var error = $.urlParam('error');
+        
         $('#lat').val(lat);
         $('#lon').val(lon);
         
@@ -112,6 +115,11 @@
             fileReader.readAsDataURL(strFileInfo); 
           }
         });
+        
+        if(error==1){
+          var error_message = "<center><h2><font color='#FF0000'>記入されていない項目があります</h2></center>";
+          $("#error").append(error_message);  
+        }
       </script>
   </body>
 <html>

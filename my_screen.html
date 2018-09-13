@@ -11,15 +11,6 @@
 </head>
 <header>
     <ul id="login_logout" class="mypage-post-tab">
-      <li class="js-mypage-tab">
-        <img src="img/icon/login.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab">
-        <img src="img/icon/camera.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab-me">
-        <img src="img/icon/dis.png" class="mypage-tab-img">
-      </li>
     </ul>
  </header>
  
@@ -44,22 +35,27 @@
 
         var category_id = $.urlParam('category_id');
         console.log(category_id);
-
+        
+        var list = "<li>\
+                          <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/home.png' class='mypage-tab-img'></a>\
+                          </li>";
+        $("#login_logout").append(list);
+        
         if (document.cookie.match(/user_id=/)){
             // console.log("logout")
             var post = "<li>\
-                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'>POST</a>\
+                         <a  href='/instaglam/post_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/camera.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(post);
             
-            var my = "<li>\
-                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>MY PAGE</a>\
-                         </li>";
-                    $("#login_logout").append(my);
+            // var my = "<li>\
+            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
+            //              </li>";
+            //         $("#login_logout").append(my);
         }else{
                 // console.log("login")
             var login = "<li>\
-                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGIN</a>\
+                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
         

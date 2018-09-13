@@ -8,19 +8,9 @@
       
       <!-- ブラウザのタブに表示されるタイトル -->
       <title>ログイン画面</title>
-      <!--<button type="button" onclick="history.back()"><h3>戻る</h3></button>-->
   </head>
   <header>
     <ul id="login_logout" class="mypage-post-tab">
-      <li class="js-mypage-tab">
-        <img src="img/icon/my.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab">
-        <img src="img/icon/camera.png" class="mypage-tab-img">
-      </li>
-      <li class="js-mypage-tab-me">
-        <img src="img/icon/dis.png" class="mypage-tab-img">
-      </li>
     </ul>
  </header>
   <body>
@@ -60,7 +50,7 @@
         var error = $.urlParam('error'); 
         
         var list = "<li>\
-                          <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/aim.png' class='mypage-tab-img'></a>\
+                          <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/home.png' class='mypage-tab-img'></a>\
                           </li>";
         $("#login_logout").append(list);
         
@@ -72,7 +62,7 @@
                     $("#login_logout").append(post);
             
             var my = "<li>\
-                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>MY PAGE</a>\
+                         <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/my.png' class='mypage-tab-img'></a>\
                          </li>";
                     $("#login_logout").append(my);
                     
@@ -80,13 +70,13 @@
                     
             // 実装できたらログアウトもやる
             // var logout = "<li>\
-            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGOUT</a>\
+            //              <a  href='/instaglam/my_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/logout.png' class='mypage-tab-img'></a>\
             //              </li>";
             //         $("#login_logout").append(logout);
         }else{
                 // console.log("login")
             var login = "<li>\
-                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'>LOGIN</a>\
+                             <a  href='/instaglam/login_screen.html?lon=" + lon + "&lat=" + lat + "'><img src='img/icon/login.png' class='mypage-tab-img'></a>\
                              </li>";
                         $("#login_logout").append(login);
         

@@ -1,5 +1,6 @@
-# instaglam
-fake instaglam
+# pospot
+~~fake instaglam~~ pospot  
+https://ccchumarns.github.io/instaglam/  
 
 ## api
 * http://~/api/get_image_db.php?user_post={位置情報（緯度/経度}  

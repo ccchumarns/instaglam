@@ -3,8 +3,8 @@
 $user_name = $_POST['user_name'];
 $password = $_POST['password'];
 
-$lat = $_GET['lat'];
-$lon = $_GET['lon'];
+$lat = $_POST['lat'];
+$lon = $_POST['lon'];
 
 //クッキーの名前
 $iCkeName     =    'user_id';

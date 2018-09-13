@@ -23,11 +23,7 @@
       </li>
       <li id="menu" class="js-mypage-tab-me">
 		<div><a href="#menu" class="menuopen"><img src="img/icon/tab.png" class="mypage-tab-img"></a><a href="#close" class="menuclose"><img src="img/icon/tab.png" class="mypage-tab-img"></div>
-		<ul>
-			<li><a>all</a></li>
-			<li><a>店舗</a></li>
-			<li><a>レジャー</a></li>
-			<li><a>0円</a></li>
+		<ul id = "cad">
 		</ul>
 	</li>
     </ul>
@@ -70,13 +66,17 @@
                 $("#list").append(article);
             }
         })
-      
         $.ajax({
                     url: "/instaglam/api/get_category.php",
                     dataType: "json"
                     }).done(function(data) {
-                    // $("#user_name").text(data.user_name)
-                    console.log(data);
+                    for (var i = 0, len = data.length; i < len; ++i) {
+                        <li><a>店舗</a></li>
+                        var category_link = "<li>\
+                             <a  href='/instaglam/list_screen.html?lon=" + lon + "%20" + lat + "&category_id=" + data[i].category_id + "'>" + data[i].category_name + "</a>\
+                             </li>";
+                        $("#cad").append(category_link);
+                    }
                 })
             </script>
 </body>

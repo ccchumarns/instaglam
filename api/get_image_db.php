@@ -15,8 +15,8 @@ if(isset($category_id) && is_numeric($category_id)){
     JOIN user ON post.user_id = user.user_id 
     JOIN category ON post.category_id = category.category_id 
     JOIN coupon ON post.coupon_id = coupon.coupon_id 
-    WHERE post.category_id = '.$category_id.' AND GLength(GeomFromText(CONCAT("LineString(139.73876 35.628471, " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.04
-    ORDER BY post.go_sum';
+    WHERE post.category_id = '.$category_id.' AND GLength(GeomFromText(CONCAT("LineString('.$user_post.', " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.5
+    ORDER BY post.go_sum DESC';
     $dataset = $db->select($sql);
     $db_len = count($dataset);
     
@@ -38,8 +38,8 @@ if(isset($category_id) && is_numeric($category_id)){
     JOIN user ON post.user_id = user.user_id 
     JOIN category ON post.category_id = category.category_id 
     JOIN coupon ON post.coupon_id = coupon.coupon_id 
-    WHERE GLength(GeomFromText(CONCAT("LineString(139.73876 35.628471, " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.04
-    ORDER BY post.go_sum';
+    WHERE GLength(GeomFromText(CONCAT("LineString('.$user_post.', " ,X(post.geometry), " ", Y(post.geometry), ")" ) )) <= 0.5
+    ORDER BY post.go_sum DESC';
     $dataset = $db->select($sql);
     $db_len = count($dataset);
     

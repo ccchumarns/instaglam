@@ -20,5 +20,8 @@ fake instaglam
 * http://~/api/update_go_sum_db.php?post_id={go_sumをカウントアップする投稿のID}&url={マップのURL}  
 アクセスされたら投稿のgo_sumをカウントアップしマップにリダイレクトする  
 
+* http://~/api/update_post_db.php?lat={緯度}&lon={経度}  
+アクセスされたら投稿のgo_sumをカウントアップしマップにリダイレクトする  
+
 * http://~/api/login.php?username={ユーザーネーム}&password={パスワード}  
 ユーザーネームとパスワードを受け取りDBにアカウントがあればTrueを返す（なければFalse）  

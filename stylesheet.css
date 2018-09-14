@@ -29,9 +29,9 @@ img {
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
-    background: #70c7ff;/*ボタン色*/
+    background: #fd9944;/*ボタン色*/
     color: #FFF;
-    border-bottom: solid 4px #627295;
+    border-bottom: solid 4px #987255;
     border-radius: 3px;
 }
 .square_btn:active {/*ボタンを押したとき*/
@@ -70,7 +70,7 @@ img {
     margin: 0 auto;
     padding: 10px 0;
     width: 340px;
-    height: 55px;
+    height: 60px;
     background: #ffffff;
     border: solid 2px #e8e2d7;
     
@@ -83,12 +83,12 @@ img {
     box-sizing: border-box;
     padding: 0 12px;
     margin: 0;
-    height: 30px;
+    height: 35px;
     line-height: 30px;
     font-size: 18px;
     letter-spacing: 0.1em;
     color: white;
-    background: #70c7ff;
+    background: #fd9944;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 .ribbon17:before {
@@ -99,7 +99,7 @@ img {
     border: none;
     height: 38px;
     width: 7px;
-    background: #70c7ff;
+    background: #fd9944;
     border-radius: 5px 0 0 5px;
 }
 .ribbon17:after {
@@ -110,7 +110,7 @@ img {
     border: none;
     height: 7px;
     width: 5px;
-    background: #4d99ca;
+    background: #987255;
     border-radius: 5px 0 0 5px;
 }
 
@@ -136,11 +136,11 @@ img {
 /*クーポンの枠*/
 .box26 {
     position: relative;
-    margin: 2em 0;
+    margin: 0 4px;
     padding: 0.5em 1em;
-    border: solid 3px #95ccff;
+    border: solid 3px #fd9944;
     border-radius: 8px;
-    height: 40px;
+    height: 80px;
 }
 .box26 .box-title {
     position: absolute;
@@ -151,7 +151,7 @@ img {
     line-height: 1;
     font-size: 19px;
     background: #FFF;
-    color: #95ccff;
+    color: #fd9944;
     background-color: #f7f3e9;
     font-weight: bold;
     
@@ -159,4 +159,8 @@ img {
 .box26 p {
     margin: 0; 
     padding: 0;
+}
+
+#title {
+    padding-left:90px;
 }

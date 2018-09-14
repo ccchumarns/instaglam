@@ -19,6 +19,11 @@
     </ul>
  </header>
  
+ 
+ 
+    <!--<h1 id="cat_name" style="padding-top:60px"></h1>-->
+     
+     
     <ul id="list" class="photo-list">
     </ul>
     
@@ -81,18 +86,24 @@
             }
         })
         $.ajax({
-                    url: "/instaglam/api/get_category.phgit p",
+                    url: "/instaglam/api/get_category.php",
                     dataType: "json"
                     }).done(function(data) {
                     var category_all = "<li>\
                              <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "'>all</a>\
                              </li>";
+                    // var cat_name = "ALL"
+                    
                     $("#cad").append(category_all);         
+                    // $("#cad_name").append(cat_alls);         
                     for (var i = 0, len = data.length; i < len; ++i) {
                         var category_link = "<li>\
                              <a  href='/instaglam/list_screen.html?lon=" + lon + "&lat=" + lat + "&category_id=" + data[i].category_id + "'>" + data[i].category_name + "</a>\
                              </li>";
+                             
+                        // var cat_name = data[i].category_name;
                         $("#cad").append(category_link);
+                        // $("#cad_name").append(cat_name);
                     }
                 })
     // 拡大縮小防止
